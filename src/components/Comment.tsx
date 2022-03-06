@@ -10,41 +10,17 @@ const CommentComponent: React.FC<Comment> = ({
     avatar,
 }) => {
     return (
-        <Paper
-            elevation={0}
-            style={{ marginBottom: '1rem', padding: '0.8rem 0.5rem' }}
-        >
-            <div
-                style={{
-                    display: 'flex',
-                    gap: '1rem',
-                    alignItems: 'center',
-                }}
-            >
+        <Paper elevation={0}>
+            <div className='comment'>
                 <Avatar src={avatar} alt={author} />
-                <div
-                    style={{
-                        display: 'flex',
-
-                        flexDirection: 'column',
-                        height: '100%',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <div
-                        style={{
-                            display: 'flex',
-                            width: '100%',
-                            gap: '0.5rem',
-                            alignItems: 'center',
-                        }}
-                    >
+                <div className='comment-body'>
+                    <div className='comment-header'>
                         <Typography variant='h6'>{author}</Typography>
-                        <Typography variant='caption'>
+                        <Typography variant='caption' className='comment-date'>
                             {format(new Date(date), 'd.MM.yyyy, hh:mm')}
                         </Typography>
                     </div>
-                    <div style={{ marginTop: '0' }}>{text}</div>
+                    <Typography variant='body2'>{text}</Typography>
                 </div>
             </div>
         </Paper>

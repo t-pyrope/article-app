@@ -3,48 +3,67 @@ import React, { useEffect, useState } from 'react';
 import ArticleComponent from './components/Article';
 import { Article, Comment } from './models/article';
 import './Application.css';
-import { getArticle } from './resources/article';
+import { getArticle, getComments } from './resources/article';
 import CommentContainer from './components/CommentsContainer';
 
 const Application: React.FC = () => {
     const [article, setArticle] = useState<Article>();
+    const [comments, setComments] = useState<Comment[]>([]);
+    const [commentsLoaded, setCommentsLoaded] = useState(false);
 
     useEffect(() => {
         getArticle()
             .then((res) => setArticle(res))
             .catch((err) => console.error(err));
+
+        getComments()
+            .then((res) => {
+                setCommentsLoaded(true);
+                setComments(res);
+            })
+            .catch((err) => console.error(err));
     }, []);
 
     return (
         <div className='App'>
-            <Container>
-                {article ? (
-                    <ArticleComponent
-                        author={article.author}
-                        date={article.date}
-                        text={article.text}
-                        avatar={article.avatar}
-                    />
-                ) : (
-                    <>
-                        <div style={{ display: 'flex', gap: '1rem' }}>
-                            <Skeleton
-                                variant='circular'
-                                width={56}
-                                height={56}
-                            />
-                            <div>
-                                <Skeleton height={30} width={500} />
-                                <Skeleton height={24} width={200} />
-                            </div>
-                        </div>
-                        <Skeleton
-                            height={210}
-                            style={{ transformOrigin: '0 20%' }}
+            <Container className='container'>
+                <div>
+                    {article ? (
+                        <ArticleComponent
+                            author={article.author}
+                            date={article.date}
+                            text={article.text}
+                            avatar={article.avatar}
                         />
-                    </>
-                )}
-                <CommentContainer />
+                    ) : (
+                        <Skeleton height={200} variant='rectangular' />
+                    )}
+                </div>
+                <div className='comment-container'>
+                    {commentsLoaded ? (
+                        comments.length ? (
+                            <CommentContainer
+                                comments={comments}
+                                setComments={setComments}
+                            />
+                        ) : (
+                            ''
+                        )
+                    ) : (
+                        <>
+                            <Skeleton
+                                height={60}
+                                variant='rectangular'
+                                style={{ transformOrigin: '0 -50%' }}
+                            />
+                            <Skeleton
+                                height={60}
+                                variant='rectangular'
+                                style={{ transformOrigin: '0 -50%' }}
+                            />
+                        </>
+                    )}
+                </div>
             </Container>
         </div>
     );

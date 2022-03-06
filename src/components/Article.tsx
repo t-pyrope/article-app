@@ -10,34 +10,21 @@ const ArticleComponent: React.FC<Article> = ({
     avatar,
 }) => {
     return (
-        <Paper
-            elevation={0}
-            style={{ marginBottom: '1.4rem', padding: '1rem' }}
-        >
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <Paper elevation={0} className='article-wrapper'>
+            <div className='article-header'>
                 <Avatar
                     sx={{ width: 70, height: 70 }}
                     src={avatar}
                     alt={author}
                 />
-                <div
-                    style={{
-                        display: 'flex',
-
-                        flexDirection: 'column',
-                        height: '100%',
-                        justifyContent: 'center',
-                    }}
-                >
+                <div className='article-info'>
                     <Typography variant='h3'>{author}</Typography>
                     <Typography variant='caption'>
                         {format(new Date(date), 'do MMMM yyyy, hh:mm')}
                     </Typography>
                 </div>
             </div>
-            <div style={{ marginTop: '10px', lineHeight: '1.4rem' }}>
-                {text}
-            </div>
+            <Typography variant='body1'>{text}</Typography>
         </Paper>
     );
 };
