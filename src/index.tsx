@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Application from './Application';
-import { Article } from './models/article';
+import { Article, Comment } from './models/article';
 
 declare global {
     interface Document {
         __article: Article;
+        __comments: Comment[];
+        __moreComments: Comment[];
     }
 }
 

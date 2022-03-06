@@ -4,3 +4,11 @@ export type Article = {
     text: string;
     avatar: string;
 };
+
+export type Comment = {
+    id: number;
+    author: string;
+    text: string;
+    date: Date;
+    avatar: string;
+};

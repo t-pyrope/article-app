@@ -1,18 +1,17 @@
 import { Container, Skeleton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import ArticleComponent from './components/Article';
-import { Article } from './models/article';
+import { Article, Comment } from './models/article';
 import './Application.css';
 import { getArticle } from './resources/article';
+import CommentContainer from './components/CommentsContainer';
 
 const Application: React.FC = () => {
     const [article, setArticle] = useState<Article>();
 
     useEffect(() => {
         getArticle()
-            .then((res) => {
-                setArticle(res);
-            })
+            .then((res) => setArticle(res))
             .catch((err) => console.error(err));
     }, []);
 
@@ -45,6 +44,7 @@ const Application: React.FC = () => {
                         />
                     </>
                 )}
+                <CommentContainer />
             </Container>
         </div>
     );
