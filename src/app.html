@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>App</title>
-	<script type="text/javascript" src="app.js"></script>
-</head>
-<body>
+    <head>
+        <title>App</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            document.__article = {
+                author: 'Eliana Franco',
+                date: '2017-09-10T22:00:05.919Z',
+                text: `Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.`,
+                avatar: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31f4def9-760a-41f7-a1b4-92813e72fd1b/d85g1mb-df53d741-e592-4b7e-bad7-28d958711d13.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMxZjRkZWY5LTc2MGEtNDFmNy1hMWI0LTkyODEzZTcyZmQxYlwvZDg1ZzFtYi1kZjUzZDc0MS1lNTkyLTRiN2UtYmFkNy0yOGQ5NTg3MTFkMTMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.CUoMgA9Sw4QFHrG6yfBcZm-qR2mFIRjsI4ya4k7cJRw',
+            };
 
-<script type="text/javascript">
+            document.__comments = [
+                {
+                    id: 1,
+                    author: 'Germán Toro',
+                    text: 'Great!',
+                    date: '2017-09-11T12:00:39.430Z',
+                },
+                {
+                    id: 2,
+                    author: 'Elena Builes',
+                    text: 'Awesome!',
+                    date: '2017-09-11T12:30:39.430Z',
+                },
+            ];
 
-document.__article = {
-  author: 'Eliana Franco',
-  date: '2017-09-10T22:00:05.919Z',
-  text: `Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.`,
-};
+            document.__moreComments = [
+                {
+                    id: 3,
+                    author: 'Germán Toro',
+                    text: 'Splendid!',
+                    date: '2017-09-11T14:30:05.919Z',
+                },
+                {
+                    id: 4,
+                    author: 'Elena Builes',
+                    text: 'Excelent!',
+                    date: '2017-09-11T11:30:05.919Z',
+                },
+            ];
+        </script>
 
-document.__comments = [
-  { id: 1, author: 'Germán Toro', text: 'Great!', date: '2017-09-11T12:00:39.430Z' },
-  { id: 2, author: 'Elena Builes', text: 'Awesome!', date: '2017-09-11T12:30:39.430Z' },
-];
-
-document.__moreComments = [
-  { id: 3, author: 'Germán Toro', text: 'Splendid!', date: '2017-09-11T14:30:05.919Z' },
-  { id: 4, author: 'Elena Builes', text: 'Excelent!', date: '2017-09-11T11:30:05.919Z' },
-];
-
-</script>
-
-<div id="APP"></div>
-
-</body>
+        <div id="APP"></div>
+    </body>
 </html>
